@@ -1,0 +1,44 @@
+#include <bits/stdc++.h>
+using namespace std;
+ 
+int main() {
+   
+   int t; cin>>t;
+   for(int i =1; i<=t;i++){
+       int n;cin>>n;
+        vector<long long int>a(n);
+        vector<long long int>b(n+1);
+        long long int diff = 2e15;
+          long long sumdiff = 0;
+        for (int i = 0; i < n; i++) {
+            cin >> a[i];
+    }
+        
+        for (int i = 0; i < n + 1; i++) {
+            cin >> b[i];
+        }
+       
+       for (int i = 0; i < n; i++) {
+            sumdiff = sumdiff + abs(a[i]-b[i]);
+           diff = min(diff, abs(a[i]-b[n]));
+              diff= min(diff,abs(b[i]-b[n]));
+    }
+      bool flag = true;
+      for(int i = 0;i<n;i++){
+          if((a[i]<=b[n]&&b[i]>=b[n])||(a[i]>=b[n]&& b[i]<=b[n])){
+              sumdiff++;
+              flag = false;
+              break;
+          }
+          
+         
+       }
+       if(flag == true){
+           sumdiff = sumdiff+diff+1;
+       }
+ 
+    cout<< sumdiff<<endl;
+}
+         
+    return 0;
+}
