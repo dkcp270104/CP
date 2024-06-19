@@ -1,0 +1,27 @@
+// prime check using seive algorithm(n(log(logn));
+//q<10^7 and N<10^7
+const int N = 1e7+10;
+vector<bool>prime(N,1);
+int main() {
+ios_base::sync_with_stdio(false),cin.tie(0),cout.tie(0);
+prime[0]=prime[1]= false;
+for(int i =2;i<N;i++){
+    if(prime[i]==true){
+        for(int j = 2*i;j<N;j+=i){
+            prime[j]= false;
+        }
+    }
+}
+ int q; cin>>q;
+ while(q--){
+     int n; cin>>n;
+     if(prime[n]){
+         cout<<"Prime"<<endl;
+     }
+     else{
+          cout<<"NotPrime"<<endl;
+     }
+ }
+ 
+   return 0;
+}
